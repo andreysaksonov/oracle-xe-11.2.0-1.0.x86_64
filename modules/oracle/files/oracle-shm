@@ -1,0 +1,33 @@
+#!/bin/sh
+case "$1" in
+  start)
+    echo "starting script /etc/init.d/oracle-shm"
+    # run only once at system startup
+    if [ -e /dev/shm/.oracle-shm ]; then
+      echo "/dev/shm is already mounted, nothing to do"
+    else
+      rm -f /dev/shm
+      mkdir /dev/shm
+      mount -B /run/shm /dev/shm
+      touch /dev/shm/.oracle-shm
+    fi
+    ;;
+  stop)
+    echo "stopping script /etc/init.d/oracle-shm"
+    echo "nothing to do"
+    ;;
+  *)
+    echo "usage: /etc/init.d/oracle-shm {start|stop}"
+    exit 1
+    ;;
+esac
+#
+### BEGIN INIT INFO
+# Provides:          oracle-shm
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6 
+# Short-Description: Bind /run/shm to /dev/shm at system startup
+# Description:       Patch to allow Oracle Database 11g use Automatic Memory Management
+### END INIT INFO
