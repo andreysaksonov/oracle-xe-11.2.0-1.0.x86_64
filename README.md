@@ -1,4 +1,4 @@
-# oracle-xe_11.2.0-1.0.x86_64
+# oracle-xe-11.2.0-1.0.x86_64
 [Vagrant] Oracle Database 11g XE
 
 1. [Download Vagrant](https://www.vagrantup.com/)
