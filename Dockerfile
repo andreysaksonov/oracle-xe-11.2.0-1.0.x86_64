@@ -15,12 +15,9 @@ RUN yum update -y -q && \
 
 RUN unzip -qq ${_TEMP}/oracle-xe-11.2.0-1.0.x86_64.rpm.zip -d ${_TEMP} && \
   rpm -ivh ${_TEMP}/Disk1/oracle-xe-11.2.0-1.0.x86_64.rpm && \
-  sed -i "s/ORACLE_PASSWORD=<value required>/ORACLE_PASSWORD=${PASSWORD}/g" \
-  ${_TEMP}/Disk1/response/xe.rsp && \
-  sed -i "s/ORACLE_CONFIRM_PASSWORD=<value required>/ORACLE_CONFIRM_PASSWORD=${PASSWORD}/g" \
-  ${_TEMP}/Disk1/response/xe.rsp && \
-  /etc/init.d/oracle-xe configure responseFile=${_TEMP}/Disk1/response/xe.rsp
-
-RUN rm -rf ${_TEMP}
+  sed -i "s/ORACLE_PASSWORD=<value required>/ORACLE_PASSWORD=${PASSWORD}/g" ${_TEMP}/Disk1/response/xe.rsp && \
+  sed -i "s/ORACLE_CONFIRM_PASSWORD=<value required>/ORACLE_CONFIRM_PASSWORD=${PASSWORD}/g" ${_TEMP}/Disk1/response/xe.rsp && \
+  /etc/init.d/oracle-xe configure responseFile=${_TEMP}/Disk1/response/xe.rsp && \
+  rm -rf ${_TEMP}
 
 CMD /etc/init.d/oracle-xe start && /bin/bash
