@@ -7,6 +7,7 @@
 4. `vagrant up`
 
 [Docker] Oracle Database 11g XE
+
 1. [Download Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. [Download Oracle Database Express Edition 11g Release 2](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
 3. `cp ~/Downloads/oracle-xe-11.2.0-1.0.x86_64.rpm.zip $ROOT/modules/oracle/files/oracle-xe-11.2.0-1.0.x86_64.rpm.zip`
