@@ -1,23 +1,27 @@
 class oracle::server {
 
   exec {
-    "/usr/bin/apt-get -y update":
-      logoutput => true,
-      timeout => 3600;
+    apt_update:
+      command =>
+        "/usr/bin/apt-get -y update",
+      logoutput =>
+        true,
+      timeout =>
+        3600;
   }
 
   package {
-    "language-pack-ru": ensure => installed;
-    "ntp": ensure => installed;
-    "htop": ensure => installed;
-    "unzip": ensure => installed;
-    "monit": ensure => installed;
-    "rsyslog": ensure => installed;
-    "curl": ensure => installed;
-    "alien": ensure => installed;
-    "libaio1": ensure => installed;
-    "unixodbc": ensure => installed;
-    "git": ensure => installed;
+    "language-pack-ru": ensure => installed, require => Exec[apt_update];
+    "ntp": ensure => installed, require => Exec[apt_update];
+    "htop": ensure => installed, require => Exec[apt_update];
+    "unzip": ensure => installed, require => Exec[apt_update];
+    "monit": ensure => installed, require => Exec[apt_update];
+    "rsyslog": ensure => installed, require => Exec[apt_update];
+    "curl": ensure => installed, require => Exec[apt_update];
+    "alien": ensure => installed, require => Exec[apt_update];
+    "libaio1": ensure => installed, require => Exec[apt_update];
+    "unixodbc": ensure => installed, require => Exec[apt_update];
+    "git": ensure => installed, require => Exec[apt_update];
   }
 
   service {
