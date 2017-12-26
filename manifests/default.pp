@@ -1,4 +1,4 @@
 node oracle-xe {
-  include oracle::server
-  include oracle::xe
+  include ubuntu::default
+  include oracle-xe::default
 }

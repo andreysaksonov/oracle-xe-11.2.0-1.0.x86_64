@@ -1,6 +1,5 @@
 if [ "$USER" = "oracle" ]; then
 	if [ -n "$BASH_VERSION" ]; then
-	    # include .bashrc if it exists
 	    if [ -f "$HOME/.bashrc" ]; then
 	        . "$HOME/.bashrc"
 	    fi
@@ -12,4 +11,3 @@ if [ "$USER" = "oracle" ]; then
 
 	. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
 fi
-

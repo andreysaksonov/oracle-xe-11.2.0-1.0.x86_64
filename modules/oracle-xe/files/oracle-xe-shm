@@ -1,0 +1,36 @@
+#!/bin/sh
+case "$1" in
+  start)
+    echo "starting script /etc/init.d/oracle-xe-shm"
+    if [ -e /dev/shm/.oracle-xe-shm ]; then
+      echo "/dev/shm is already mounted, nothing to do"
+    else
+      rm -rf /dev/shm && mkdir /dev/shm
+      mount -B /run/shm /dev/shm && touch /dev/shm/.oracle-xe-shm
+      echo "/dev/shm successfully created"
+    fi
+    ;;
+  stop)
+    echo "stopping script /etc/init.d/oracle-xe-shm"
+    if [ -e /dev/shm/.oracle-xe-shm ]; then
+      rm -rf /dev/shm
+      echo "/dev/shm successfully deleted"
+    else
+      echo "/dev/shm is not present, nothing to do"
+    fi
+    ;;
+  *)
+    echo "usage: /etc/init.d/oracle-xe-shm {start|stop}"
+    exit 1
+    ;;
+esac
+#
+### BEGIN INIT INFO
+# Provides:          oracle-xe-shm
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6 
+# Short-Description: bind /run/shm to /dev/shm at system startup
+# Description:       patch to allow Oracle Database 11g Express Edition use Automatic Memory Management
+### END INIT INFO
