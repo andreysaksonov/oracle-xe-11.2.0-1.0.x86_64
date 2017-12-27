@@ -1,4 +1,4 @@
-modules/oracle/files/oracle-xe-shm text eol=lf
-modules/oracle/files/oracle-xe_env.sh text eol=lf
-modules/oracle/files/sysctl_oracle-xe.conf text eol=lf
-modules/oracle/files/oracle-xe.rsp text eol=lf
+modules/oracle-xe/files/oracle-xe-shm text eol=lf
+modules/oracle-xe/files/profile_oracle_env.sh text eol=lf
+modules/oracle-xe/files/sysctl_oracle-xe.conf text eol=lf
+modules/oracle-xe/files/oracle-xe.rsp text eol=lf
