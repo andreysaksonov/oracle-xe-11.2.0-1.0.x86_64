@@ -1,5 +1,5 @@
-# oracle-xe-11.2.0-1.0.x86_64
-[Vagrant] Oracle Database 11g XE
+# oracle-xe-11.2.0
+[Vagrant] Oracle Database Express Edition 11g Release 2
 
 1. [Download & Install Vagrant](https://www.vagrantup.com)
 2. [Download Oracle Database Express Edition 11g Release 2](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
