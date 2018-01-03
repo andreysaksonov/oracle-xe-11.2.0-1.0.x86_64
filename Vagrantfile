@@ -15,7 +15,7 @@ Vagrant.configure("2") do |oraclexe_config|
     end
 
     oraclexe_config.vm.provider "virtualbox" do |vb|
-      vb.name = "oracle-xe_11.2.0-2_amd64"
+      vb.name = "oracle-xe_11.2.0_amd64"
       vb.memory = "3072"
     end
 
